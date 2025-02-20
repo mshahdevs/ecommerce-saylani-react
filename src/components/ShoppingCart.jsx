@@ -216,7 +216,7 @@ export const ShoppingCart = () => {
                   ))
                 }
                   
-                <div class="grid  grid-cols-4  items-center gap-4  py-2">  
+                {/* <div class="grid  grid-cols-4  items-center gap-4  py-2">  
                     <div class="w-[100%]  flex  gap-1 relative ">  
                         <img src={img} alt="Product Image" class=" h-16 mt-1  object-contain" />  
                         <span className="absolute z-10 top-0 left-[3.1rem] text-[12px] h-[14px] w-[14px] pb-[3px] rounded-full flex text-white bg-black justify-center items-center">x</span>
@@ -232,7 +232,7 @@ export const ShoppingCart = () => {
                         <input type="number" class="w-16 border rounded p-1" />  
                     </div>  
                     <div className="w-[12%] font-josefin text-[14px] text-[#15245E]">$219.00</div>  
-                </div>  
+                </div>   */}
                 {/* <div class="grid  grid-cols-4 items-center gap-4  py-2">  
                     <div class="w-[100%]  flex  gap-1   ">  
                         <img src={img} alt="Product Image" class=" h-16 object-cover" />  
