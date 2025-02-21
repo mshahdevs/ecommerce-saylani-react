@@ -75,7 +75,7 @@ export const ForgetPassword = () => {
             }   text-[15px] font-Lato`}
             disabled={!email}
           >
-            Submit
+            Send email
           </button>
         </form>
       </div>

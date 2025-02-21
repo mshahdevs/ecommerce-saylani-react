@@ -1,5 +1,5 @@
-import React from 'react';
-
+import React, { useRef } from 'react';
+import { Link } from 'react-router-dom';
 import { CiHeart, CiShoppingCart, CiZoomIn } from 'react-icons/ci';
 import { useSelector, useDispatch } from 'react-redux';
 import { toggleFavorite } from '@/src/Slices/FavoriteSlice';
@@ -7,26 +7,24 @@ import { toggleCart } from '@/src/Slices/CartSlice';
 import { useState } from 'react';
 import { FaHeart } from 'react-icons/fa6';
 import { useFirebaseContext } from '@/src/context/FirebaseContext';
-
+import authFailed from '@/src/assets/authfailed.png';
 import { toast } from 'react-toastify';
-import { AuthMessage2 } from '../AuthMessage2';
-
+import DialogMessage from '../DialogMessage';
 export const FlashSalesProducts = () => {
-  const [showAuthMessage, setShowAuthMessage] = useState(false);
   const { currentUser } = useFirebaseContext();
-
-  // Initialize favorites as an empty object
   const [favorites, setFavorites] = useState({});
-  const { products, isLoading, message } = useSelector(
-    (state) => state.product
-  );
+  const { products } = useSelector((state) => state.product);
+  const { message } = useSelector((state) => state.favorite);
+
   const cart = useSelector((state) => state.cart);
-  console.log(cart);
+
   const dispatch = useDispatch();
 
   const handleFavorite = (product) => {
     if (!currentUser) {
-      setShowAuthMessage(!showAuthMessage);
+      // setShowAuthMessage(!showAuthMessage);
+      modal.current.open();
+
       toast.warning('Authentication is required.');
       return;
     }
@@ -36,22 +34,41 @@ export const FlashSalesProducts = () => {
     };
     setFavorites(updatedFavorites);
     dispatch(toggleFavorite(product));
-    toast.success('Product added to Favorite');
+    toast.success('Product added to Favorite!');
   };
 
   const handleAddToCart = (data) => {
     if (!currentUser) {
-      setShowAuthMessage(!showAuthMessage);
+      // setShowAuthMessage(!showAuthMessage);
+      modal.current.open();
       toast.warning('Authentication is required.');
       return;
     }
     dispatch(toggleCart(data));
     toast.success('Product added to Cart');
   };
+  const modal = useRef();
 
   return (
     <>
-      {showAuthMessage && <AuthMessage2 />}
+      <DialogMessage ref={modal}>
+        <div className='flex justify-center  flex-col items-center'>
+          <img src={authFailed} alt='' className=' w-[40px]' />
+          <h1 className='text-3xl font-bold font-josefin text-red-700'>
+            Authentication Required
+          </h1>
+          <p className='text-gray-500 text-sm mb-1 font-inter'>
+            Please do login or signup for buying products.
+          </p>
+          <Link
+            to={'/signup'}
+            className='px-3 bg-red-600 p-2 mt-4 font-josefin rounded-full text-white font-medium'
+          >
+            Go to Sign Up
+          </Link>
+        </div>
+      </DialogMessage>
+
       <section className='lg:w-[82%] md:w-[85%]  sm:w-[94%] xsm:w-[90%] w-full mx-auto flex flex-col justify-start items-start mt-9'>
         {/* Flash Sales Products */}
         <h1 className='text-center font-josefin text-3xl font-semibold mx-auto my-2'>
@@ -75,14 +92,7 @@ export const FlashSalesProducts = () => {
                     />
 
                     <span className='absolute top-1 z-40 left-10 bg-white p-1 cursor-pointer rounded-[50px]'>
-                      {favorites[product.id] ? (
-                        <FaHeart
-                          className='text-red-500 text-[12px]'
-                          onClick={() => handleFavorite(product)}
-                        />
-                      ) : (
-                        <CiHeart onClick={() => handleFavorite(product)} />
-                      )}
+                      <CiHeart onClick={() => handleFavorite(product)} />
                     </span>
 
                     <CiZoomIn className='absolute top-1 left-[4.8rem] bg-white p-1 text-[24px] cursor-pointer rounded-[50px]' />

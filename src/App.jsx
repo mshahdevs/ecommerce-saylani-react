@@ -24,6 +24,8 @@ import Navbar from './components/ShopUsNav';
 import { SignUp } from './pages/Signup';
 import { AuthMessage } from './components/AuthMessage';
 import { ForgetPassword } from './pages/ForgetPassword';
+import About from './pages/About';
+import Faq from './pages/Faq';
 
 function App() {
   const dispatch = useDispatch();
@@ -41,13 +43,16 @@ function App() {
         <Route path='/login' element={<Login />} />
         <Route path='/favorite' element={<Favorite />} />
         <Route path='/cart' element={<Cart />} />
-        <Route path='/shop-left-sidebar' element={<ShopLeftSidebar />} />
+        <Route path='/pages/shop-left-sidebar' element={<ShopLeftSidebar />} />
         <Route path='/shop-list' element={<ShopList />} />
         <Route path='/products' element={<AllProducts />} />
         <Route path='/shopping-cart' element={<ShoppingCart />} />
         <Route path='/blog' element={<Blog />} />
         <Route path='/shop' element={<Shop />} />
         <Route path='/auth' element={<AuthMessage />} />
+        <Route path='/about' element={<About />} />
+        <Route path='/pages/faq' element={<Faq />} />
+
         <Route path='/forget-password' element={<ForgetPassword />} />
         <Route path='/signup' element={<SignUp />} />
         <Route path='/product-detail' element={<ProductDetail />} />

@@ -117,12 +117,7 @@ const ProductDetail = () => {
         {/* <img src={lamp} alt='' className='absolute w-[200px]' /> */}
         <div className='lg:w-[82%]   md:w-[84%] sm:w-[94%] xsm:w-[90%] mt-8  xxs:w-[90%]  mx-auto    '>
           <div className='w-full bg-green-400  flex items-center mx-auto justify-between  '>
-            <div className='lg:w-[60%]  bg-red-400   md:w-[50%] p-3 xxs:w-[50%]  xs:w-[50%] flex items-center justify-center'></div>
-            <div className=' lg:w-[90%] bg-gray-400 md:w-[50%]  xxs:w-[50%] h-[349px] mx-4  xs:h-[200px] xsm:h-[300px] xs:p-4 xs:w-[50%]  xxs:p-3 xxs:items-center xxs:justify-center mt-[3.5rem]  xsm:w-[50%] px-8 py-14 flex  flex-col justify-start items-center xsm:gap-0 xs:gap-0 xs:justify-center xs:items-center  '>
-              <div className=' flex flex-col  justify-center  xxs:gap-3 items-start'>
-                <div className=' flex gap-1 mt-3 items-center justify-center'></div>
-              </div>
-            </div>
+            <div className=' lg:w-[90%] bg-gray-400 md:w-[50%]  xxs:w-[50%] h-[349px]   xs:h-[200px] xsm:h-[300px] xs:p-4 xs:w-[50%]  xxs:p-3 xxs:items-center xxs:justify-center mt-[3.5rem]  xsm:w-[50%]  flex  flex-col justify-start items-center xsm:gap-0 xs:gap-0 xs:justify-center xs:items-center  '></div>
           </div>
         </div>
       </section>

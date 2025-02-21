@@ -8,30 +8,28 @@ import { toggleFavorite } from '@/src/Slices/FavoriteSlice';
 import { toggleCart } from '@/src/Slices/CartSlice';
 import { useState } from 'react';
 import { FaHeart } from 'react-icons/fa6';
+import authfailed from '@/src/assets/authfailed.png';
 import { setSearchQuery } from '@/src/Slices/ProductSlice';
 // import { CommandInput } from "@/components/ui/command";
 import { useFirebaseContext } from '@/src/context/FirebaseContext';
 import { useRef } from 'react';
-import { AuthMessage } from '../AuthMessage';
 import { toast } from 'react-toastify';
+import DialogMessage from '../DialogMessage';
 export const AllProducts = () => {
   // Initialize favorites as an empty object
   const [favorites, setFavorites] = useState({});
-  const [showAuthMessage, setShowAuthMessage] = useState(false);
 
   const [addProduct, setAddProduct] = useState({});
   const { currentUser } = useFirebaseContext();
-  console.log(currentUser);
 
   const { products, isLoading, message, filterProducts, searchQuery } =
     useSelector((state) => state.product);
-  console.log(filterProducts);
-  console.log('products', products);
-  console.log(searchQuery);
+
   const dispatch = useDispatch();
   const handleFavorite = (product) => {
     if (!currentUser) {
-      setShowAuthMessage(!showAuthMessage);
+      // setShowAuthMessage(!showAuthMessage);
+      modal.current.open();
       toast.warning('Authentication is required.');
       return;
     }
@@ -45,7 +43,8 @@ export const AllProducts = () => {
   };
   const handleAddToCart = (data) => {
     if (!currentUser) {
-      setShowAuthMessage(!showAuthMessage);
+      // setShowAuthMessage(!showAuthMessage);
+      modal.current.open();
       toast.warning('Authentication is required.');
       return;
     }
@@ -59,16 +58,33 @@ export const AllProducts = () => {
     if (lastChange.current) {
       clearTimeout(lastChange.current);
     }
-    console.log(event);
+
     lastChange.current = setTimeout(() => {
       lastChange.current = null;
       dispatch(setSearchQuery(event.target.value));
     }, 500);
   };
+  const modal = useRef();
 
   return (
     <>
-      {showAuthMessage && <AuthMessage />}
+      <DialogMessage ref={modal}>
+        <div className='flex justify-center  flex-col items-center'>
+          <img src={authfailed} alt='' className=' w-[40px]' />
+          <h1 className='text-3xl font-bold font-josefin text-red-700'>
+            Authentication Required
+          </h1>
+          <p className='text-gray-500 text-sm mb-1 font-inter'>
+            Please do login or signup for buying products.
+          </p>
+          <Link
+            to={'/signup'}
+            className='px-3 bg-red-600 p-2 mt-4 font-josefin rounded-full text-white font-medium'
+          >
+            Go to Sign Up
+          </Link>
+        </div>
+      </DialogMessage>
       <input
         type='text'
         onChange={handleSearchProduct}
@@ -103,14 +119,7 @@ export const AllProducts = () => {
                     />
 
                     <span className='absolute top-1 z-40 left-10 bg-white p-1 cursor-pointer rounded-[50px]'>
-                      {favorites[product.id] ? (
-                        <FaHeart
-                          className='text-red-500 text-[12px]'
-                          onClick={() => handleFavorite(product)}
-                        />
-                      ) : (
-                        <CiHeart onClick={() => handleFavorite(product)} />
-                      )}
+                      <CiHeart onClick={() => handleFavorite(product)} />
                     </span>
 
                     <CiZoomIn className='absolute top-1 left-[4.8rem] bg-white p-1 text-[24px] cursor-pointer rounded-[50px]' />

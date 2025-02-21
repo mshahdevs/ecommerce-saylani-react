@@ -17,7 +17,6 @@ import { TopCategory } from '../components/Products/TopCategory';
 export const Home = () => {
   const favorite = useSelector((state) => state.favorite);
 
-  console.log(favorite);
   return (
     <>
       <Hero_Section />

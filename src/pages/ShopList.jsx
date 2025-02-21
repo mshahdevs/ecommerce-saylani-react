@@ -16,6 +16,7 @@ import img5 from '../../src/assets/productimages/product5.png';
 import img6 from '../../src/assets/productimages/product6.png';
 import img7 from '../../src/assets/productimages/product7.png';
 import { Parteners } from '../components/offers/Parteners';
+import PageHeader from '../components/pageheader/PageHeader';
 
 const ShopList = () => {
   const products = [
@@ -89,16 +90,7 @@ const ShopList = () => {
   };
   return (
     <>
-      <div className='w-full bg-[#f6f5ff] h-[286px] flex justify-center'>
-        <div className='w-[84%]  flex items-center justify-start'>
-          <div className='text-left ml-3  my-auto'>
-            <h1 className='text-3xl font-semibold py-2'>Shop List</h1>
-            <span>
-              Home . Pages . <span className='text-[#fb2e86]'>Shop List</span>
-            </span>
-          </div>
-        </div>
-      </div>
+      <PageHeader title='Shop List' />
       <div className='w-[84%] flex mt-3 justify-between items-center mx-auto'>
         <div className='flex flex-col items-start justify-start'>
           <h1 className='font-semibold'>

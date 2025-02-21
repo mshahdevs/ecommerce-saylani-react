@@ -5,12 +5,14 @@ import {
 // import { toast } from "react-toastify";
 import { onAuthStateChanged, signOut } from 'firebase/auth';
 import React, { useEffect, useState } from 'react';
-import { CiHeart } from 'react-icons/ci';
+import { CiCrop, CiHeart } from 'react-icons/ci';
 import { CiMail, CiPhone, CiSearch, CiShoppingCart } from 'react-icons/ci';
 import user from '../assets/user.svg';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { RxCross2 } from 'react-icons/rx';
+import { toast } from 'react-toastify';
 const Navabar = () => {
   const [toggle, setToggle] = useState(false);
   const { favoriteProducts } = useSelector((state) => state.favorite);
@@ -24,29 +26,27 @@ const Navabar = () => {
     { routename: 'Home', url: '/' },
 
     { routename: 'Product', url: '/all-products' },
-    { routename: 'Pages', url: '/', hasDropdown: true },
-    { routename: 'Blog', url: '/shop-list' },
+    { routename: 'Pages', url: '/pages', hasDropdown: true },
+    { routename: 'Blog', url: '/blog' },
     { routename: 'Shop', url: '/shop-list' },
 
     { routename: 'Sign Up', url: '/signup' },
     { routename: 'Login', url: '/login' },
   ];
   const context = useFirebaseContext();
-  const [isDropdownVisible, setDropdownVisible] = useState(false);
 
-  console.log(context);
   const protectedRoutes = [
     { routename: 'Home', url: '/' },
-    { routename: 'Pages', url: '/', hasDropdown: true },
+    { routename: 'Pages', url: '/pages', hasDropdown: true },
     { routename: 'Product', url: '/products' },
-    { routename: 'Blog', url: '/shop-list' },
+    { routename: 'Blog', url: '/blog' },
     { routename: 'Shop', url: '/shop-list' },
     { routename: 'Logout', url: '' },
   ];
   const handleLogout = () => {
     signOut(auth);
     // toast.success("Logout Successfully");
-    console.log('logout successfully');
+    toast.success('logout successfully');
   };
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
@@ -57,18 +57,7 @@ const Navabar = () => {
       }
     });
   });
-  const handleMouseEnter = () => setDropdownVisible(!isDropdownVisible);
-  // const handleMouseLeave = () => setDropdownVisible(false);
-  const dropdownItems = [
-    {
-      routename: 'Demo',
-      url: '/shop-left-sidebar',
-    },
-    {
-      routename: 'Shop',
-      url: '/shop-list',
-    },
-  ];
+
   return (
     <>
       <div className='w-full flex gap-32 text-white justify-center items-center bg-[#7E33E0] p-1'>
@@ -119,28 +108,11 @@ const Navabar = () => {
                   <>
                     <Link
                       key={index}
-                      onClick={item.hasDropdown ? handleMouseEnter : undefined}
                       className='hover:border-b-[1.4px]  font-josefin  md:pb-[1px] hover:md:p-0 hover:border-transparent border-transparent md:border-b md:border-transparent  md:hover:border-b-[1.4px] md:hover:border-gray-500  cursor-pointer'
                       to={item.url}
                     >
                       {item.routename}
                     </Link>
-                    {/* Dropdown for pages route */}
-                    {item.hasDropdown && isDropdownVisible && (
-                      <ul className='absolute top-4 left-[40%] bg-white/70  border border-gray-100 rounded-lg text-black mt-2 w-[35%]  shadow-lg'>
-                        {/* <span className='w-3 h-3 bg-red-400'></span> */}
-                        {dropdownItems.map((dropdownItem, index) => (
-                          <li
-                            key={index}
-                            className='p-2 font-josefin rounded-lg hover:bg-gray-200'
-                          >
-                            <Link to={dropdownItem.url}>
-                              {dropdownItem.routename}
-                            </Link>
-                          </li>
-                        ))}
-                      </ul>
-                    )}
                   </>
                 ))
               : protectedRoutes.map((item, index) => {
@@ -221,7 +193,11 @@ const Navabar = () => {
             </div>
           </Link>
 
-          <GiHamburgerMenu className='lg:hidden' onClick={handleToggle} />
+          {toggle ? (
+            <RxCross2 onClick={handleToggle} />
+          ) : (
+            <GiHamburgerMenu className='lg:hidden' onClick={handleToggle} />
+          )}
         </div>
       </div>
       <ul
