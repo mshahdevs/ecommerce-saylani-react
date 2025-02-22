@@ -6,18 +6,11 @@ import facebook from '@/src/assets/social-icons/facebook.png';
 import insta from '@/src/assets/social-icons/insta.png';
 import twitter from '@/src/assets/social-icons/twitter.png';
 
-import circle from '@/src/assets/ellipse.png';
-
-import clubsofa from '@/src/assets/clubsofa.png';
 import { CiHeart } from 'react-icons/ci';
-import { TrendingProducts } from './TrendingProducts';
-import { LatestProducts } from './LatestProducts';
-import { FlashSalesProducts } from './FlashSalesProducts';
+
 import { useSelector } from 'react-redux';
 const ProductDetail = () => {
-  const { products, isLoading, message } = useSelector(
-    (state) => state.product
-  );
+  const { products } = useSelector((state) => state.product);
   return (
     <>
       <div className='w-full bg-[#f6f5ff] h-[286px] flex justify-center'>

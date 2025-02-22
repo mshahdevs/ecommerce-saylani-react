@@ -1,13 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import reviewfillstar from '@/src/assets/fillstar.svg';
-import { IoEyeOutline } from 'react-icons/io5';
+
 import { CiHeart, CiShoppingCart, CiZoomIn } from 'react-icons/ci';
 import { useSelector, useDispatch } from 'react-redux';
 import { toggleFavorite } from '@/src/Slices/FavoriteSlice';
 import { toggleCart } from '@/src/Slices/CartSlice';
 import { useState } from 'react';
-import { FaHeart } from 'react-icons/fa6';
 import authfailed from '@/src/assets/authfailed.png';
 import { setSearchQuery } from '@/src/Slices/ProductSlice';
 // import { CommandInput } from "@/components/ui/command";
@@ -22,8 +20,7 @@ export const AllProducts = () => {
   const [addProduct, setAddProduct] = useState({});
   const { currentUser } = useFirebaseContext();
 
-  const { products, isLoading, message, filterProducts, searchQuery } =
-    useSelector((state) => state.product);
+  const { filterProducts } = useSelector((state) => state.product);
 
   const dispatch = useDispatch();
   const handleFavorite = (product) => {

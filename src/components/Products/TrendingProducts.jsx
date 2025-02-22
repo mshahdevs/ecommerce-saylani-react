@@ -1,6 +1,5 @@
 import React from 'react';
 import { trendProducts } from '@/src/utils/products';
-import { CiHeart, CiShoppingCart, CiZoomIn } from 'react-icons/ci';
 import product5 from '@/src/assets/trendingP/P1.png';
 import product6 from '@/src/assets/trendingP/p2.png';
 import product7 from '@/src/assets/trendingP/p3.png';

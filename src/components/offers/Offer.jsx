@@ -1,12 +1,7 @@
-import React, { useState } from 'react';
-import { CiHeart, CiShoppingCart, CiZoomIn } from 'react-icons/ci';
-import { FaHeart } from 'react-icons/fa6';
+import React from 'react';
 import { offers } from '@/src/utils/offers';
-import sale from '@/src/assets/features/sale.png';
 
 export const Offers = () => {
-  const [favorites, setFavorites] = useState({});
-
   return (
     <>
       <section className='lg:w-[82%] md:w-[85%]  sm:w-[94%] xsm:w-[90%] w-full mx-auto flex flex-col justify-start items-start mt-9'>

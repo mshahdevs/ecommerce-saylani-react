@@ -13,6 +13,7 @@ import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { RxCross2 } from 'react-icons/rx';
 import { toast } from 'react-toastify';
+import { RxHamburgerMenu } from 'react-icons/rx';
 const Navabar = () => {
   const [toggle, setToggle] = useState(false);
   const { favoriteProducts } = useSelector((state) => state.favorite);
@@ -130,21 +131,6 @@ const Navabar = () => {
                       >
                         {item.routename}
                       </Link>
-                      {item.hasDropdown && isDropdownVisible && (
-                        <ul className='absolute top-4 left-[40%] bg-white/70  border border-gray-100 rounded-lg text-black mt-2 w-[35%]  shadow-lg'>
-                          {/* <span className='w-3 h-3 bg-red-400'></span> */}
-                          {dropdownItems.map((dropdownItem, index) => (
-                            <li
-                              key={index}
-                              className='p-2 font-josefin hover:bg-gray-200'
-                            >
-                              <Link to={dropdownItem.url}>
-                                {dropdownItem.routename}
-                              </Link>
-                            </li>
-                          ))}
-                        </ul>
-                      )}
                     </li>
                   ) : (
                     <li className='hover:border-b-[1.4px]  font-josefin  md:pb-[1px] hover:md:p-0 hover:border-transparent border-transparent md:border-b md:border-transparent  md:hover:border-b-[1.4px] md:hover:border-gray-500  cursor-pointer'>
@@ -155,10 +141,7 @@ const Navabar = () => {
           </ul>
         </div>
         <div className='flex items-center gap-3 '>
-          <div
-            className='hidden lg:flex border border-[#E7E6EF] items-center  lg:pl-2 
-           '
-          >
+          <div className='hidden lg:flex border border-[#E7E6EF] items-center  lg:pl-2 '>
             <input
               type='text'
               id='search'
@@ -196,44 +179,33 @@ const Navabar = () => {
           {toggle ? (
             <RxCross2 onClick={handleToggle} />
           ) : (
-            <GiHamburgerMenu className='lg:hidden' onClick={handleToggle} />
+            <RxHamburgerMenu className='lg:hidden' onClick={handleToggle} />
           )}
         </div>
       </div>
       <ul
         className={`${
           toggle ? 'flex' : 'hidden'
-        } flex-col absolute w-full  z-40 items-center py-5 bg-[#efeef8] lg:hidden gap-4`}
+        } flex-col  absolute w-full h-full transition-all duration-300 top-20 right-0  z-40 items-center py-5 bg-[#060606] bg-opacity-50 lg:hidden gap-4`}
       >
-        <li>
-          <div className='flex border  border-black items-center lg:px-2 lg:py-1 rounded-[5px]'>
-            {/* <label htmlFor="search">
-              <CiSearch className="text-[1.3rem] lg:text-[1.5rem]" />
-            </label>
-            <input
-              type="text"
-              id="search"
-              name="search"
-              className="bg-transparent focus:outline-none pl-1"
-            /> */}
-          </div>
-        </li>
-        <Link
-          to='/'
-          className='hover:border-b-[1.4px] md:pb-[1px] hover:md:p-0 hover:border-transparent border-transparent md:border-b md:border-transparent  md:hover:border-b-[1.4px] md:hover:border-gray-500  cursor-pointer'
-        >
-          Home
-        </Link>
+        <div className='w-1/3 transition-all duration-300 bg-[#e2e5e5] shadow-lg h-screen items-center flex flex-col py-16 justify-start gap-y-7 absolute top-0 right-0'>
+          <Link
+            to='/'
+            className='hover:border-b-[1.4px]   md:pb-[1px] hover:md:p-0 hover:border-transparent border-transparent md:border-b md:border-transparent  md:hover:border-b-[1.4px] md:hover:border-gray-500  cursor-pointer'
+          >
+            Home
+          </Link>
 
-        <li className='hover:border-b-[1.4px] md:pb-[1px] hover:md:p-0 hover:border-transparent border-transparent md:border-b md:border-transparent  md:hover:border-b-[1.4px] md:hover:border-gray-500  cursor-pointer'>
-          Product
-        </li>
-        <li className='hover:border-b-[1.4px] md:pb-[1px] hover:md:p-0 hover:border-transparent border-transparent md:border-b md:border-transparent  md:hover:border-b-[1.4px] md:hover:border-gray-500  cursor-pointer'>
-          Contact
-        </li>
-        <li className='hover:border-b-[1.4px] md:pb-[1px] hover:md:p-0 hover:border-transparent border-transparent md:border-b md:border-transparent  md:hover:border-b-[1.4px] md:hover:border-gray-500  cursor-pointer'>
-          Logout
-        </li>
+          <li className='hover:border-b-[1.4px] md:pb-[1px] hover:md:p-0 hover:border-transparent border-transparent md:border-b md:border-transparent  md:hover:border-b-[1.4px] md:hover:border-gray-500  cursor-pointer'>
+            Product
+          </li>
+          <li className='hover:border-b-[1.4px] md:pb-[1px] hover:md:p-0 hover:border-transparent border-transparent md:border-b md:border-transparent  md:hover:border-b-[1.4px] md:hover:border-gray-500  cursor-pointer'>
+            Contact
+          </li>
+          <li className='hover:border-b-[1.4px] md:pb-[1px] hover:md:p-0 hover:border-transparent border-transparent md:border-b md:border-transparent  md:hover:border-b-[1.4px] md:hover:border-gray-500  cursor-pointer'>
+            Logout
+          </li>
+        </div>
       </ul>
     </>
   );

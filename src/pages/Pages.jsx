@@ -1,5 +1,3 @@
-import React from 'react';
-import PageHeader from '../components/pageheader/PageHeader';
 import { Link } from 'react-router-dom';
 import { CircleArrowOutUpRight } from 'lucide-react';
 export const Pages = () => {

@@ -1,10 +1,5 @@
 import React from 'react';
 
-// import circle from '@/src/assets/';
-
-import clubsofa from '@/src/assets/home/discountsofa.png';
-import tick from '@/src/assets/tick.svg';
-
 export const BackgroundImageBanner = () => {
   return (
     <>

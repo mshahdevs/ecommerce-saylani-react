@@ -1,9 +1,7 @@
-import React from 'react';
 import PageHeader from '../components/pageheader/PageHeader';
-import blog1 from '@/src/assets/blog/blogs1.png';
 import r1 from '@/src/assets/blog/R1.png';
 import p1 from '@/src/assets/blog/P1.png';
-
+import { latestBlog } from '@/src/utils/blog';
 import { CiSearch } from 'react-icons/ci';
 import { Parteners } from '../components/offers/Parteners';
 const Blog = () => {
@@ -17,93 +15,35 @@ const Blog = () => {
               {/* Blogs Div */}
               <div className=' md:w-[84%]  flex flex-col gap-8'>
                 {/* Single blog */}
-                <div className='  flex items-start gap-4 flex-col'>
-                  <img src={blog1} className='w-full' alt='' />
-                  {/* Author Details */}
-                  <div className='flex items-center gap-4'>
-                    <span className='bg-[#ffe7f9] md:px-10 px-6 text-sm py-1 '>
-                      Auxion
-                    </span>
-                    <span className='bg-[#FFECE2] md:px-10 px-6 text-sm py-1'>
-                      Aug 09 2020
-                    </span>
+                {latestBlog.map((blog) => (
+                  <div
+                    key={blog.id}
+                    className='  flex items-start gap-4 flex-col'
+                  >
+                    <img src={blog.image} className='w-full' alt='' />
+                    {/* Author Details */}
+                    <div className='flex items-center gap-4'>
+                      <span className='bg-[#ffe7f9] md:px-10 px-6 text-sm py-1 '>
+                        {blog.author}
+                      </span>
+                      <span className='bg-[#FFECE2] md:px-10 px-6 text-sm py-1'>
+                        {blog.date}
+                      </span>
+                    </div>
+                    <h3 className='md:text-3xl text-2xl font-bold text-[#151875]'>
+                      {blog.title}
+                    </h3>
+                    <p className='text-sm text-left text-[#8A8FB9]'>
+                      {blog.description}
+                    </p>
+                    <div className='flex items-center space-x-2'>
+                      <span className=' font-Lato font-semibold text-sm text-[#151875]'>
+                        Read More
+                      </span>
+                      <span className='w-[6px] h-[6px] rounded-full bg-pink-500'></span>
+                    </div>
                   </div>
-                  <h3 className='md:text-3xl text-2xl font-bold text-[#151875]'>
-                    Mauris at orci non vulputate diam tincidunt nec.
-                  </h3>
-                  <p className='text-sm text-left text-[#8A8FB9]'>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Velit facilisis quis auctor pretium ipsum, eu rutrum.
-                    Condimentum eu malesuada vitae ultrices in in neque, porta
-                    dignissim. Adipiscing purus, cursus vulputate id id dictum
-                    at.
-                  </p>
-                  <div className='flex items-center space-x-2'>
-                    <span className=' font-Lato font-semibold text-sm text-[#151875]'>
-                      Read More
-                    </span>
-                    <span className='w-[6px] h-[6px] rounded-full bg-pink-500'></span>
-                  </div>
-                </div>
-
-                {/* Single blog */}
-                <div className=' w-full flex items-start gap-4 flex-col'>
-                  <img src={blog1} className='w-full' alt='' />
-                  {/* Author Details */}
-                  <div className='flex items-center gap-4'>
-                    <span className='bg-[#ffe7f9] md:px-10 px-6 text-sm py-1 '>
-                      Auxion
-                    </span>
-                    <span className='bg-[#FFECE2] md:px-10 px-6 text-sm py-1'>
-                      Aug 09 2020
-                    </span>
-                  </div>
-                  <h3 className='md:text-3xl text-2xl font-bold text-[#151875]'>
-                    Mauris at orci non vulputate diam tincidunt nec.
-                  </h3>
-                  <p className='text-sm text-left text-[#8A8FB9]'>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Velit facilisis quis auctor pretium ipsum, eu rutrum.
-                    Condimentum eu malesuada vitae ultrices in in neque, porta
-                    dignissim. Adipiscing purus, cursus vulputate id id dictum
-                    at.
-                  </p>
-                  <div className='flex items-center space-x-2'>
-                    <span className=' font-Lato font-semibold text-sm text-[#151875]'>
-                      Read More
-                    </span>
-                    <span className='w-[6px] h-[6px] rounded-full bg-pink-500'></span>
-                  </div>
-                </div>
-                {/* Single blog */}
-                <div className=' w-full flex items-start gap-4 flex-col'>
-                  <img src={blog1} className='w-full' alt='' />
-                  {/* Author Details */}
-                  <div className='flex items-center gap-4'>
-                    <span className='bg-[#ffe7f9] md:px-10 px-6 text-sm py-1 '>
-                      Auxion
-                    </span>
-                    <span className='bg-[#FFECE2] md:px-10 px-6 text-sm py-1'>
-                      Aug 09 2020
-                    </span>
-                  </div>
-                  <h3 className='md:text-3xl text-2xl font-bold text-[#151875]'>
-                    Mauris at orci non vulputate diam tincidunt nec.
-                  </h3>
-                  <p className='text-sm text-left text-[#8A8FB9]'>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Velit facilisis quis auctor pretium ipsum, eu rutrum.
-                    Condimentum eu malesuada vitae ultrices in in neque, porta
-                    dignissim. Adipiscing purus, cursus vulputate id id dictum
-                    at.
-                  </p>
-                  <div className='flex items-center space-x-2'>
-                    <span className=' font-Lato font-semibold text-sm text-[#151875]'>
-                      Read More
-                    </span>
-                    <span className='w-[6px] h-[6px] rounded-full bg-pink-500'></span>
-                  </div>
-                </div>
+                ))}
               </div>
               {/* d */}
               <div className=' md:w-[30%]  font-josefin  flex flex-col gap-10'>

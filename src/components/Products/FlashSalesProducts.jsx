@@ -5,7 +5,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import { toggleFavorite } from '@/src/Slices/FavoriteSlice';
 import { toggleCart } from '@/src/Slices/CartSlice';
 import { useState } from 'react';
-import { FaHeart } from 'react-icons/fa6';
 import { useFirebaseContext } from '@/src/context/FirebaseContext';
 import authFailed from '@/src/assets/authfailed.png';
 import { toast } from 'react-toastify';
@@ -14,9 +13,9 @@ export const FlashSalesProducts = () => {
   const { currentUser } = useFirebaseContext();
   const [favorites, setFavorites] = useState({});
   const { products } = useSelector((state) => state.product);
-  const { message } = useSelector((state) => state.favorite);
+  // const { message } = useSelector((state) => state.favorite);
 
-  const cart = useSelector((state) => state.cart);
+  // const cart = useSelector((state) => state.cart);
 
   const dispatch = useDispatch();
 

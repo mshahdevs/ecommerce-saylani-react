@@ -65,14 +65,10 @@ export const SignUp = () => {
   const provider = new GoogleAuthProvider();
   const handleResetPassword = (e) => {
     e.preventDefault();
-    // if (email) {
-    //     setError("Please enter your email");
-    //     return;
-    // }
+
     sendPasswordResetEmail(auth, 'mshahaurangzeb45@gmail.com')
       .then(() => {
         setError('Password reset email sent!');
-        // setResetEmail(""); // Clear input field after sending email
       })
       .catch((error) => {
         const errorMessage = error.message;

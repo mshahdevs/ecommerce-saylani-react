@@ -1,4 +1,3 @@
-import React from 'react';
 import aboutimg from '@/src/assets/aboutbanner.png';
 import support from '@/src/assets/offers/quality.png';
 import client from '@/src/assets/client1.png';

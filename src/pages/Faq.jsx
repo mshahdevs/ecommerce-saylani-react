@@ -1,4 +1,3 @@
-import React from 'react';
 import PageHeader from '../components/pageheader/PageHeader';
 import { Parteners } from '../components/offers/Parteners';
 

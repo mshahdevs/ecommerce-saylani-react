@@ -1,6 +1,5 @@
 import React from 'react';
 // import iphonebanner from '../../src/assets/iphonebanner.png';
-import remote from '../../src/assets/productimages/remote.png';
 import { useState } from 'react';
 import lamp from '../assets/home/lamp.png';
 import sofaheader from '../assets/home/chair.png';

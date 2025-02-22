@@ -10,92 +10,18 @@ import {
   CiZoomIn,
 } from 'react-icons/ci';
 import { TiStarFullOutline } from 'react-icons/ti';
-import img1 from '../../src/assets/shop-left-sidebar/product1.png';
-import img2 from '../../src/assets/shop-left-sidebar/product2.png';
-import img3 from '../../src/assets/shop-left-sidebar/product3.png';
-import img4 from '../../src/assets/shop-left-sidebar/product4.png';
-import img5 from '../../src/assets/shop-left-sidebar/product5.png';
-import img6 from '../../src/assets/shop-left-sidebar/product6.png';
-import img7 from '../../src/assets/shop-left-sidebar/product7.png';
 
 import reviewstar from '@/src/assets/fillstar.svg';
 import reviewemptystar from '@/src/assets/emptystar.svg';
 
 import partnerImg from '../../src/assets/productimages/partnerimg.png';
-import { useState } from 'react';
 import { setCategory } from '../Slices/ProductSlice';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 
 export const ShopLeftSidebar = () => {
-  const { category, filterProducts } = useSelector((state) => state.product);
-
-  const products = [
-    {
-      id: 1,
-      title: 'Accumsan tincidunt',
-      price: 26.0,
-      discount: 52.0,
-      img: img1,
-      description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna in est adipiscing in phasellus non in justo.',
-    },
-    {
-      id: 2,
-      title: 'Accumsan tincidunt',
-      price: 26.0,
-      discount: 52.0,
-      img: img2,
-      description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna in est adipiscing in phasellus non in justo.',
-    },
-    {
-      id: 3,
-      title: 'Accumsan tincidunt',
-      price: 26.0,
-      discount: 52.0,
-      img: img3,
-      description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna in est adipiscing in phasellus non in justo.',
-    },
-    {
-      id: 4,
-      title: 'Accumsan tincidunt',
-      price: 26.0,
-      discount: 52.0,
-      img: img4,
-      description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna in est adipiscing in phasellus non in justo.',
-    },
-    {
-      id: 5,
-      title: 'Accumsan tincidunt',
-      price: 26.0,
-      discount: 52.0,
-      img: img5,
-      description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna in est adipiscing in phasellus non in justo.',
-    },
-    {
-      id: 6,
-      title: 'Accumsan tincidunt',
-      price: 26.0,
-      discount: 52.0,
-      img: img6,
-      description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna in est adipiscing in phasellus non in justo.',
-    },
-    {
-      id: 7,
-      title: 'Accumsan tincidunt',
-      price: 26.0,
-      discount: 52.0,
-      img: img7,
-      description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna in est adipiscing in phasellus non in justo.',
-    },
-  ];
+  const { filterProducts } = useSelector((state) => state.product);
 
   const dispatch = useDispatch();
   useEffect(() => {

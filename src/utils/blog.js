@@ -7,7 +7,6 @@ export const latestBlog = [
     id: 1,
     author: 'SaberAli',
     date: '21 August,2020',
-
     title: 'Top esssential Trends in 2021',
     image: blog1,
     description:

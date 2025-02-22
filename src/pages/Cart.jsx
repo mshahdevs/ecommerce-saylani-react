@@ -1,12 +1,10 @@
-import React from 'react';
 import { useSelector } from 'react-redux';
-import img from '@/src/assets/productimages/camera.png';
 import { CiHeart, CiShoppingCart, CiZoomIn } from 'react-icons/ci';
 import cart from '@/src/assets/shopping-cart/cart.png';
 import { Link } from 'react-router-dom';
 
 export const Cart = () => {
-  const { cartProducts, message } = useSelector((state) => state.cart);
+  const { cartProducts } = useSelector((state) => state.cart);
 
   if (cartProducts.length <= 0) {
     return (
@@ -19,13 +17,13 @@ export const Cart = () => {
     );
   }
   return (
-    <div className=' p-2 w-full flex flex-col space-y-4 justify-center items-center m-auto'>
+    <div className=' p-2 w-full flex flex-col  space-y-4 justify-center items-center m-auto'>
       {cartProducts.map((product) => (
-        <div className='bg-white rounded-md shadow-lg shadow-fuchsia-200 p-2 w-[80%] gap-6 flex justify-evenly items-center'>
+        <div className='bg-white rounded-md shadow-lg shadow-fuchsia-200 p-5 w-[80%] gap-6 flex justify-evenly mb-4 items-center'>
           <div className='w-[500px]'>
             <img src={product?.category?.image} className='w-full' alt='' />
           </div>
-          <div className=' flex flex-col justify-start items-start'>
+          <div className=' flex flex-col font-josefin gap-3 justify-start items-start'>
             <div className='flex items-center gap-3'>
               <h1 className='font-medium'>{product?.title}</h1>
               <div className='flex space-x-2 mt-1'>
@@ -37,7 +35,7 @@ export const Cart = () => {
             <div>
               <span>${product?.price}</span>
             </div>
-            <p>{product?.description}</p>
+            <p className='text-left text-sm'>{product?.description}</p>
             <div className='flex justify-center items-center'>
               <Link to={'/shopping-cart'}>
                 <CiShoppingCart size={20} />

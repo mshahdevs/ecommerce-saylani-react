@@ -1,4 +1,3 @@
-import React from 'react';
 import { Hero_Section } from '../components/Hero_Section';
 import { FlashSalesProducts } from '../components/Products/FlashSalesProducts';
 import { useSelector } from 'react-redux';
@@ -11,11 +10,9 @@ import { BackgroundImageBanner } from '../components/banner/BackgroundImagebanne
 import { Parteners } from '../components/offers/Parteners';
 import { LatestBlog } from '../components/offers/LatestBlog';
 import { TopCategory } from '../components/Products/TopCategory';
-// import { TodayTimer } from '../components/TodayTimer'
-// import FeaturedProduct from '../components/Products/FeatureProducts'
 
 export const Home = () => {
-  const favorite = useSelector((state) => state.favorite);
+  // const favorite = useSelector((state) => state.favorite);
 
   return (
     <>

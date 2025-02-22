@@ -1,14 +1,13 @@
 import {
   createUserWithEmailAndPassword,
   GoogleAuthProvider,
-  sendPasswordResetEmail,
   signInWithEmailAndPassword,
   signInWithPopup,
 } from 'firebase/auth';
 import { FaEye, FaEyeSlash } from 'react-icons/fa6';
 
-import React, { useState } from 'react';
-import { auth, signInWithGoogle } from '../../firebas.config';
+import { useState } from 'react';
+import { auth } from '../../firebas.config';
 import { Link, useNavigate } from 'react-router-dom';
 import googleIcon from '../../src/assets/googleicon.png';
 
@@ -40,7 +39,7 @@ export const Login = () => {
     }
     signInWithEmailAndPassword(auth, email, password)
       .then((response) => {
-        const user = response.user;
+        response.user;
         toast.success('Login Successfully!');
         navigate('/');
       })
@@ -56,7 +55,7 @@ export const Login = () => {
     }
     createUserWithEmailAndPassword(auth, email, password)
       .then((response) => {
-        const user = response.user;
+        response.user;
         toast.success('Sign Up Successfully!');
         navigate('/');
       })
