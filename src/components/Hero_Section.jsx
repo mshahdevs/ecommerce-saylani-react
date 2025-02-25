@@ -49,73 +49,64 @@ export const Hero_Section = () => {
   return (
     <>
       <section className='w-full relative bg-[#F2F0FF]'>
-        <img src={lamp} alt='' className='absolute w-[200px]' />
-        <div className='lg:w-[82%]   md:w-[84%] sm:w-[94%] xsm:w-[90%] mt-8  xxs:w-[90%]  mx-auto    '>
-          <div className='w-full  flex items-center mx-auto justify-between  '>
-            <div className=' lg:w-[90%] md:w-[50%] xxs:w-[50%] h-[349px] mx-4  xs:h-[200px] xsm:h-[300px] xs:p-4 xs:w-[50%]  xxs:p-3 xxs:items-center xxs:justify-center mt-[3.5rem]  xsm:w-[50%] px-8 py-14 flex  flex-col justify-start items-center xsm:gap-0 xs:gap-0 xs:justify-center xs:items-center  '>
-              <button onClick={next} className='hidden text-white'>
-                {' '}
-                Next
-              </button>
-              <div className='w-full flex items-center justify-start  xxs:gap-0 '>
-                {/* <img
-                  src={carouselItems1[currentIndex].imgSrc}
-                  className='w-[30px] xxs:w-[25px] xsm:w-[22px] '
-                  alt='logo'
-                /> */}
-                <p className='font-Lato font-bold   xs:mt-3 text-[#fb2e86] text-[16px] xxs:w-full xxs:text-[8px] xsm:mt-1 xsm:text-[12px]'>
-                  {carouselItems1[currentIndex].title}
-                </p>
-              </div>
-              <div className=' flex flex-col  justify-center  xxs:gap-3 items-start'>
-                <h1 className=' text-[30px] font-josefin w-[80%] text-start font-semibold xs:text-[35px] xsm:text-[23px] xxs:w-[90%] xxs:text-[25px]'>
-                  {carouselItems1[currentIndex].description}
-                </h1>
-                <p className='text-left w-[75%]'>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio
-                  beatae aliquid magnam quibusdam eligendi.
-                </p>
-                <div className=' flex mt-3 items-center justify-center'>
-                  <span>
-                    <button className='text-white py-1 px-3 rounded-sm text-[16px] bg-[#fb2e86] font-medium'>
-                      Shop Now
-                    </button>
-                  </span>
-                </div>
-              </div>
+        <img
+          src={lamp}
+          alt=''
+          className='absolute sm:-left-7 xsm:-left-12 xxs:hidden w-[200px]'
+        />
+        {/* <div className='lg:w-[82%]   md:w-[84%] md:bg-green-500 bg-red-600  mt-8    mx-auto    '> */}
+        <div className='w-[84%]  flex items-center xxs:flex-col mx-auto justify-between  '>
+          <div className='md:w-[64%]  sm:w-[67%]  xsm:w-[67%] xxs:w-full h-[349px] md:mx-4 m-0  xxs:justify-center xxs:items-center xxs:mx-auto  mt-[3.5rem]   md:pl-14 md:pr-0 md:py-8 py-14 xxs:py-2 flex sm:pl-14 sm:py-8 flex-col justify-start items-center   '>
+            <div className='w-full flex items-center justify-start   '>
+              <p className='font-Lato font-bold text-[#fb2e86] xxs:text-[10px]  md:text-[14px] lg:text-[16px] text-[10px] xsm:pl-12  xsm:text-[12px] '>
+                {carouselItems1[currentIndex].title}
+              </p>
             </div>
-            <div className='lg:w-[50%] relative  md:w-[50%] p-3 xxs:w-[50%]  xs:w-[50%] flex items-center justify-center'>
-              <img src={circle} alt='' className='absolute w-[350px] ' />
-              <span className='absolute text-[12px] z-30 text-center flex justify-center items-center circle-offer w-[60px]  h-[60px] -top-32 right-8'>
-                <span className='w-7 text-white text-[15px] text-center  font-medium'>
-                  {carouselItems1[currentIndex].discount}% OFF
+            <div className=' flex flex-col   justify-center  xxs:gap-2 items-start'>
+              <h1 className='  md:text-[24px] xxs:text-[18px] font-josefin  w-[80%] text-start font-semibold xsm:pl-12 text-[23px] xsm:text-[22px]  '>
+                {carouselItems1[currentIndex].description}
+              </h1>
+              <p className='text-left xsm:pl-12 w-[75%]'>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio
+                beatae aliquid magnam quibusdam eligendi.
+              </p>
+              <div className=' flex mt-3 items-center justify-center'>
+                <span className='xsm:pl-12'>
+                  <button className='text-white py-1 px-3  rounded-sm text-[16px] bg-[#fb2e86] font-medium'>
+                    Shop Now
+                  </button>
                 </span>
-              </span>
-              <img
-                src={carouselItems1[currentIndex].imgBanner}
-                className='w-[300px] absolute object-contain'
-                alt='bannerimg'
-              />
+              </div>
             </div>
-            <div className='lg:w-[20%] md:w-0 xxs:hidden  xxs:w-0'></div>
-            <button onClick={previous} className='text-white hidden'>
-              Previous
-            </button>
           </div>
-          <div className='flex justify-center  m-0 '>
-            {carouselItems1.map((_, index) => (
-              <button
-                key={index}
-                className={`h-3 w-3 mb-3 rounded-full mx-1 ${
-                  currentIndex === index
-                    ? 'bg-[#db4444] border-[1.5px] border-white'
-                    : 'bg-gray-500'
-                }`}
-                onClick={() => handleDotClick(index)}
-              />
-            ))}
+          <div className='lg:w-[50%] w-[50%] relative bg-red-200  md:w-[50%] p-3 xxs:w-[50%]  xs:w-[50%] flex items-center justify-center'>
+            <img src={circle} alt='' className='absolute w-[350px] ' />
+            <span className='absolute text-[12px] z-30 text-center flex justify-center items-center circle-offer w-[60px]  h-[60px] -top-32 right-8'>
+              <span className='w-7 text-white text-[15px] text-center  font-medium'>
+                {carouselItems1[currentIndex].discount}% OFF
+              </span>
+            </span>
+            <img
+              src={carouselItems1[currentIndex].imgBanner}
+              className='w-[300px] absolute object-contain'
+              alt='bannerimg'
+            />
           </div>
         </div>
+        <div className='flex justify-center  m-0 '>
+          {carouselItems1.map((_, index) => (
+            <button
+              key={index}
+              className={`h-3 w-3 mb-3 rounded-full mx-1 ${
+                currentIndex === index
+                  ? 'bg-[#db4444] border-[1.5px] border-white'
+                  : 'bg-gray-500'
+              }`}
+              onClick={() => handleDotClick(index)}
+            />
+          ))}
+        </div>
+        {/* </div> */}
       </section>
     </>
   );

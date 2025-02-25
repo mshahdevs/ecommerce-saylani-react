@@ -19,7 +19,8 @@ const FirbaseProvider = ({ children }) => {
     signInWithEmailAndPassword(auth, email, password)
       .then((response) => {
         console.log('Login successful:', response.user);
-        // toast.success("Successfully logged in"); // Provide meaningful logs
+
+        toast.success('Successfully logged in'); // Provide meaningful logs
       })
       .catch((error) => {
         console.error('Login error:', error); // Log error for debugging

@@ -5,10 +5,9 @@ import {
 // import { toast } from "react-toastify";
 import { onAuthStateChanged, signOut } from 'firebase/auth';
 import React, { useEffect, useState } from 'react';
-import { CiCrop, CiHeart } from 'react-icons/ci';
+import { CiHeart } from 'react-icons/ci';
 import { CiMail, CiPhone, CiSearch, CiShoppingCart } from 'react-icons/ci';
 import user from '../assets/user.svg';
-import { GiHamburgerMenu } from 'react-icons/gi';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { RxCross2 } from 'react-icons/rx';
@@ -27,7 +26,7 @@ const Navabar = () => {
     { routename: 'Home', url: '/' },
 
     { routename: 'Product', url: '/all-products' },
-    { routename: 'Pages', url: '/pages', hasDropdown: true },
+    { routename: 'Pages', url: '/pages' },
     { routename: 'Blog', url: '/blog' },
     { routename: 'Shop', url: '/shop-list' },
 
@@ -38,7 +37,7 @@ const Navabar = () => {
 
   const protectedRoutes = [
     { routename: 'Home', url: '/' },
-    { routename: 'Pages', url: '/pages', hasDropdown: true },
+    { routename: 'Pages', url: '/pages' },
     { routename: 'Product', url: '/products' },
     { routename: 'Blog', url: '/blog' },
     { routename: 'Shop', url: '/shop-list' },
@@ -61,40 +60,48 @@ const Navabar = () => {
 
   return (
     <>
-      <div className='w-full flex gap-32 text-white justify-center items-center bg-[#7E33E0] p-1'>
-        <div className='flex gap-2 text-white'>
-          <span className='flex items-center'>
+      <div className='w-full flex lg:gap-32 md:gap-32 gap-9   text-white  lg:justify-center md:justify-center justify-between items-center bg-[#7E33E0] p-1'>
+        <div className='flex gap-2  text-white'>
+          <span className='flex items-center lg:text-lg md:text-lg text-sm'>
             {' '}
             <CiMail />
             mshahdev@gmail.com
           </span>
-          <span className='flex items-center'>
+          <span className='md:flex hidden   text-sm lg:text-lg items-center'>
             {' '}
             <CiPhone /> (091 45 3432){' '}
           </span>
         </div>
         <div className='flex gap-2 items-center'>
           <span className=' '>
-            <select name='' id='' className='bg-transparent'>
+            <select
+              name=''
+              id=''
+              className='bg-transparent text-sm hidden lg:block md:block lg:text-lg md:text-lg'
+            >
               <option value=''>English</option>
               <option value=''>Urdu</option>
             </select>
           </span>
 
           <span className=''>
-            <select name='' id='' className='bg-transparent'>
+            <select
+              name=''
+              id=''
+              className='bg-transparent hidden lg:block md:block text-sm lg:text-lg md:text-lg'
+            >
               <option value=''>USD</option>
               <option value=''>PKR</option>
             </select>
           </span>
-          <span className='flex items-center'>
+          <span className='flex items-center text-sm lg:text-lg md:text-lg pr-3'>
             Login
             <img src={user} alt='' />
           </span>
-          <span className='flex items-center'>
+          <span className='md:flex lg:flex items-center  hidden text-sm lg:text-lg md:text-lg'>
             Wishlist <CiHeart />
           </span>
-          <CiShoppingCart />
+          <CiShoppingCart className='hidden md:block lg:block ' />
         </div>
       </div>
       <div className=' h-[3rem] shadow-sm lg:h-[5rem] flex items-center justify-between px-4 lg:px-10 w-[100%]'>
@@ -119,28 +126,26 @@ const Navabar = () => {
               : protectedRoutes.map((item, index) => {
                   return item.routename === 'Logout' ? (
                     <li
+                      key={index}
                       onClick={handleLogout}
                       className='hover:border-b-[1.4px]   font-josefin  md:pb-[1px] hover:md:p-0 hover:border-transparent border-transparent md:border-b md:border-transparent  md:hover:border-b-[1.4px] md:hover:border-gray-500  cursor-pointer'
                     >
                       <Link
                         to={item.url}
                         className='hover:border-b-[1.4px]   font-josefin  md:pb-[1px] hover:md:p-0 hover:border-transparent border-transparent md:border-b md:border-transparent  md:hover:border-b-[1.4px]  cursor-pointer'
-                        onClick={
-                          item.hasDropdown ? handleMouseEnter : undefined
-                        }
                       >
                         {item.routename}
                       </Link>
                     </li>
                   ) : (
-                    <li className='hover:border-b-[1.4px]  font-josefin  md:pb-[1px] hover:md:p-0 hover:border-transparent border-transparent md:border-b md:border-transparent  md:hover:border-b-[1.4px] md:hover:border-gray-500  cursor-pointer'>
+                    <li className='hover:border-b-[1.4px]   font-josefin  md:pb-[1px] hover:md:p-0 hover:border-transparent border-transparent md:border-b md:border-transparent  md:hover:border-b-[1.4px] md:hover:border-gray-500  cursor-pointer'>
                       <Link to={item.url}>{item.routename}</Link>
                     </li>
                   );
                 })}
           </ul>
         </div>
-        <div className='flex items-center gap-3 '>
+        <div className='flex duration-200 transition-all items-center gap-3 '>
           <div className='hidden lg:flex border border-[#E7E6EF] items-center  lg:pl-2 '>
             <input
               type='text'
@@ -177,34 +182,54 @@ const Navabar = () => {
           </Link>
 
           {toggle ? (
-            <RxCross2 onClick={handleToggle} />
+            <RxCross2
+              onClick={handleToggle}
+              className='fixed top-[1rem] text-[24px] cursor-pointer right-[18.5rem] z-[999] '
+            />
           ) : (
-            <RxHamburgerMenu className='lg:hidden' onClick={handleToggle} />
+            <RxHamburgerMenu
+              className='lg:hidden cursor-pointer'
+              onClick={handleToggle}
+            />
           )}
         </div>
       </div>
       <ul
         className={`${
           toggle ? 'flex' : 'hidden'
-        } flex-col  absolute w-full h-full transition-all duration-300 top-20 right-0  z-40 items-center py-5 bg-[#060606] bg-opacity-50 lg:hidden gap-4`}
+        } flex-col  fixed w-full h-full transition-all duration-300 top-0 left-0 min-h-screen z-40 items-center py-5 bg-[#000101]  bg-opacity-50 lg:hidden gap-4`}
       >
         <div className='w-1/3 transition-all duration-300 bg-[#e2e5e5] shadow-lg h-screen items-center flex flex-col py-16 justify-start gap-y-7 absolute top-0 right-0'>
-          <Link
-            to='/'
-            className='hover:border-b-[1.4px]   md:pb-[1px] hover:md:p-0 hover:border-transparent border-transparent md:border-b md:border-transparent  md:hover:border-b-[1.4px] md:hover:border-gray-500  cursor-pointer'
-          >
-            Home
-          </Link>
-
-          <li className='hover:border-b-[1.4px] md:pb-[1px] hover:md:p-0 hover:border-transparent border-transparent md:border-b md:border-transparent  md:hover:border-b-[1.4px] md:hover:border-gray-500  cursor-pointer'>
-            Product
-          </li>
-          <li className='hover:border-b-[1.4px] md:pb-[1px] hover:md:p-0 hover:border-transparent border-transparent md:border-b md:border-transparent  md:hover:border-b-[1.4px] md:hover:border-gray-500  cursor-pointer'>
-            Contact
-          </li>
-          <li className='hover:border-b-[1.4px] md:pb-[1px] hover:md:p-0 hover:border-transparent border-transparent md:border-b md:border-transparent  md:hover:border-b-[1.4px] md:hover:border-gray-500  cursor-pointer'>
-            Logout
-          </li>
+          {!context.isLogin
+            ? publicRoutes.map((item, index) => (
+                <Link
+                  key={index}
+                  to={item.url}
+                  className='hover:border-b-[1.4px]   md:pb-[1px] hover:md:p-0 hover:border-transparent border-transparent md:border-b md:border-transparent  md:hover:border-b-[1.4px] md:hover:border-gray-500  cursor-pointer'
+                >
+                  {item.routename}
+                </Link>
+              ))
+            : protectedRoutes.map((item, index) => {
+                return item.routename === 'Logout' ? (
+                  <li
+                    key={index}
+                    onClick={handleLogout}
+                    className='hover:border-b-[1.4px]   font-josefin  md:pb-[1px] hover:md:p-0 hover:border-transparent border-transparent md:border-b md:border-transparent  md:hover:border-b-[1.4px] md:hover:border-gray-500  cursor-pointer'
+                  >
+                    <Link
+                      to={item.url}
+                      className='hover:border-b-[1.4px]   font-josefin  md:pb-[1px] hover:md:p-0 hover:border-transparent border-transparent md:border-b md:border-transparent  md:hover:border-b-[1.4px]  cursor-pointer'
+                    >
+                      {item.routename}
+                    </Link>
+                  </li>
+                ) : (
+                  <li className='hover:border-b-[1.4px]   font-josefin  md:pb-[1px] hover:md:p-0 hover:border-transparent border-transparent md:border-b md:border-transparent  md:hover:border-b-[1.4px] md:hover:border-gray-500  cursor-pointer'>
+                    <Link to={item.url}>{item.routename}</Link>
+                  </li>
+                );
+              })}
         </div>
       </ul>
     </>
