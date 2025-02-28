@@ -14,9 +14,9 @@ export const TrendingProducts = () => {
       </h1>
       <div className='w-full grid  grid-cols-2 md:grid-cols-3 lg:grid-cols-4  my-4'>
         {/* Product 1 */}
-        {trendProducts.slice(0, 4).map((product) => (
+        {trendProducts.slice(0, 4).map((product, index) => (
           <>
-            <div className='group ' key={product?.id}>
+            <div className='group ' key={index}>
               <div className='flex justify-start gap-1 h-[340px] p-2  border border-gray-200 rounded-md shadow-custom items-start w-[230px] flex-col'>
                 <div className='h-[230px] px-4 rounded-sm group-hover:bg-[#F7F7F7] bg-[#F6F7FB] relative w-full flex justify-center items-center flex-col'>
                   <img src={product?.image} className='w-[150px]' alt='' />

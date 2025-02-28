@@ -22,7 +22,6 @@ import ProductDetail from './components/Products/ProductDetail';
 import { ShopLeftSidebar } from './pages/ShopLeftSidebar';
 import Navbar from './components/ShopUsNav';
 import { SignUp } from './pages/Signup';
-import { AuthMessage } from './components/AuthMessage';
 import { ForgetPassword } from './pages/ForgetPassword';
 import About from './pages/About';
 import Faq from './pages/Faq';
@@ -49,7 +48,6 @@ function App() {
         <Route path='/shopping-cart' element={<ShoppingCart />} />
         <Route path='/blog' element={<Blog />} />
         <Route path='/shop' element={<Shop />} />
-        <Route path='/auth' element={<AuthMessage />} />
         <Route path='/about' element={<About />} />
         <Route path='/pages/faq' element={<Faq />} />
 
@@ -57,7 +55,7 @@ function App() {
         <Route path='/signup' element={<SignUp />} />
         <Route path='/product-detail' element={<ProductDetail />} />
       </Routes>
-      {/* <Footer /> */}
+      <Footer />
     </>
   );
 }

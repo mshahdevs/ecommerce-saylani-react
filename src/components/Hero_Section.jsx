@@ -1,5 +1,3 @@
-import React from 'react';
-// import iphonebanner from '../../src/assets/iphonebanner.png';
 import { useState } from 'react';
 import lamp from '../assets/home/lamp.png';
 import sofaheader from '../assets/home/chair.png';
@@ -79,7 +77,7 @@ export const Hero_Section = () => {
               </div>
             </div>
           </div>
-          <div className='lg:w-[50%] w-[50%] relative bg-red-200  md:w-[50%] p-3 xxs:w-[50%]  xs:w-[50%] flex items-center justify-center'>
+          <div className='lg:w-[50%] w-[50%] relative   md:w-[50%] p-3 xxs:w-[50%]  xs:w-[50%] flex items-center justify-center'>
             <img src={circle} alt='' className='absolute w-[350px] ' />
             <span className='absolute text-[12px] z-30 text-center flex justify-center items-center circle-offer w-[60px]  h-[60px] -top-32 right-8'>
               <span className='w-7 text-white text-[15px] text-center  font-medium'>

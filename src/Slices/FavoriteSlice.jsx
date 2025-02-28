@@ -4,7 +4,7 @@ const favoriteSlice = createSlice({
   name: 'favorite',
   initialState: {
     favoriteProducts: [],
-    message: 'Product added to Cart',
+    message: '',
   },
   reducers: {
     toggleFavorite: (state, action) => {
@@ -15,14 +15,10 @@ const favoriteSlice = createSlice({
         state.favoriteProducts = state.favoriteProducts.filter(
           (item) => item.id !== action.payload.id
         );
-        state.message = 'Product removed from favorite';
+        state.message = 'Product removed favorite';
       } else {
         state.favoriteProducts.push(action.payload);
-        if (state.favoriteProducts.length === 1) {
-          state.message = 'Product added to Cart';
-        } else if (state.favoriteProducts.length === 0) {
-          state.message = 'Product removed';
-        }
+        state.message = 'Product added';
       }
     },
   },

@@ -11,11 +11,7 @@ import { toast } from 'react-toastify';
 import DialogMessage from '../DialogMessage';
 export const FlashSalesProducts = () => {
   const { currentUser } = useFirebaseContext();
-  const [favorites, setFavorites] = useState({});
   const { products } = useSelector((state) => state.product);
-  // const { message } = useSelector((state) => state.favorite);
-
-  // const cart = useSelector((state) => state.cart);
 
   const dispatch = useDispatch();
 
@@ -27,11 +23,7 @@ export const FlashSalesProducts = () => {
       toast.warning('Authentication is required.');
       return;
     }
-    const updatedFavorites = {
-      ...favorites,
-      [product.id]: !favorites[product.id],
-    };
-    setFavorites(updatedFavorites);
+
     dispatch(toggleFavorite(product));
     toast.success('Product added to Favorite!');
   };
@@ -52,8 +44,8 @@ export const FlashSalesProducts = () => {
     <>
       <DialogMessage ref={modal}>
         <div className='flex justify-center  flex-col items-center'>
-          <img src={authFailed} alt='' className=' w-[40px]' />
-          <h1 className='text-3xl font-bold font-josefin text-red-700'>
+          <img src={authFailed} alt='' className=' w-[35px] mb-3' />
+          <h1 className='text-2xl font-bold font-josefin text-red-700'>
             Authentication Required
           </h1>
           <p className='text-gray-500 text-sm mb-1 font-inter'>
@@ -115,16 +107,6 @@ export const FlashSalesProducts = () => {
                     </span>
                   </span>
                 </div>
-                {/* <div className="flex justify-start items-center">  
-                  <img src={reviewfillstar} alt="" />  
-                  <img src={reviewfillstar} alt="" />  
-                  <img src={reviewfillstar} alt="" />  
-                  <img src={reviewfillstar} alt="" />  
-                  <img src={reviewfillstar} alt="" />  
-                  <span className="ml-2 text-black opacity-55 font-semibold text-[14px]">  
-                    (80)  
-                  </span>  
-                </div> */}
               </div>
             </div>
           ))}

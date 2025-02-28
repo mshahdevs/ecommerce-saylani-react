@@ -12,9 +12,9 @@ export const LatestBlog = () => {
       </h1>
       <div className='w-full grid  grid-cols-2 md:grid-cols-3 lg:grid-cols-3  my-4'>
         {/* Product 1 */}
-        {latestBlog?.map((blog) => (
+        {latestBlog?.map((blog, index) => (
           <>
-            <div className='group ' key={blog?.id}>
+            <div className='group ' key={index}>
               <div className='flex justify-start gap-1  border border-gray-200 rounded-md shadow-custom items-start w-[330px] flex-col'>
                 <img src={blog?.image} className='w-full rounded-t-md' alt='' />
                 <div className='w-full flex p-3 gap-3 items-start  justify-start flex-col'>
@@ -46,10 +46,6 @@ export const LatestBlog = () => {
                     Read More
                   </button>
                 </div>
-
-                {/* <div className='flex mb-3 flex-col group-hover:text-white gap-1 justify-center items-center mx-auto'> */}
-
-                {/* </div> */}
               </div>
             </div>
           </>

@@ -20,24 +20,24 @@ export const Home = () => {
 
       {/* <TodayTimer /> */}
 
-      {/* <FlashSalesProducts /> */}
+      <FlashSalesProducts />
       {/* Latest Products */}
-      {/* <LatestProducts /> */}
-      {/* <Offers /> */}
+      <LatestProducts />
+      <Offers />
       {/* Banner */}
-      {/* <Banner /> */}
+      <Banner />
       {/* Trending Products */}
-      {/* <TrendingProducts /> */}
+      <TrendingProducts />
       {/* Discount Item Banner */}
-      {/* <DiscountBanner /> */}
+      <DiscountBanner />
       {/* Top Category */}
-      {/* <TopCategory /> */}
+      <TopCategory />
       {/* Background Image */}
-      {/* <BackgroundImageBanner /> */}
+      <BackgroundImageBanner />
       {/* Our Parteners */}
-      {/* <Parteners /> */}
+      <Parteners />
       {/* Latest blog */}
-      {/* <LatestBlog /> */}
+      <LatestBlog />
     </>
   );
 };

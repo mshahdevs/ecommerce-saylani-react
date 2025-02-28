@@ -138,7 +138,10 @@ const Navabar = () => {
                       </Link>
                     </li>
                   ) : (
-                    <li className='hover:border-b-[1.4px]   font-josefin  md:pb-[1px] hover:md:p-0 hover:border-transparent border-transparent md:border-b md:border-transparent  md:hover:border-b-[1.4px] md:hover:border-gray-500  cursor-pointer'>
+                    <li
+                      key={index}
+                      className='hover:border-b-[1.4px]   font-josefin  md:pb-[1px] hover:md:p-0 hover:border-transparent border-transparent md:border-b md:border-transparent  md:hover:border-b-[1.4px] md:hover:border-gray-500  cursor-pointer'
+                    >
                       <Link to={item.url}>{item.routename}</Link>
                     </li>
                   );
@@ -184,7 +187,7 @@ const Navabar = () => {
           {toggle ? (
             <RxCross2
               onClick={handleToggle}
-              className='fixed top-[1rem] text-[24px] cursor-pointer right-[18.5rem] z-[999] '
+              className='fixed top-[1rem] text-[24px] lg:hidden cursor-pointer right-[1.5rem] z-[999] '
             />
           ) : (
             <RxHamburgerMenu
@@ -225,7 +228,10 @@ const Navabar = () => {
                     </Link>
                   </li>
                 ) : (
-                  <li className='hover:border-b-[1.4px]   font-josefin  md:pb-[1px] hover:md:p-0 hover:border-transparent border-transparent md:border-b md:border-transparent  md:hover:border-b-[1.4px] md:hover:border-gray-500  cursor-pointer'>
+                  <li
+                    key={index}
+                    className='hover:border-b-[1.4px]   font-josefin  md:pb-[1px] hover:md:p-0 hover:border-transparent border-transparent md:border-b md:border-transparent  md:hover:border-b-[1.4px] md:hover:border-gray-500  cursor-pointer'
+                  >
                     <Link to={item.url}>{item.routename}</Link>
                   </li>
                 );

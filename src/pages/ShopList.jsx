@@ -8,90 +8,18 @@ import {
   CiZoomIn,
 } from 'react-icons/ci';
 import { TiStarFullOutline } from 'react-icons/ti';
-import img1 from '../../src/assets/productimages/product1.png';
-import img2 from '../../src/assets/productimages/product2.png';
-import img3 from '../../src/assets/productimages/product3.png';
-import img4 from '../../src/assets/productimages/product4.png';
-import img5 from '../../src/assets/productimages/product5.png';
-import img6 from '../../src/assets/productimages/product6.png';
-import img7 from '../../src/assets/productimages/product7.png';
+import { products } from '../utils/shoplist';
 import { Parteners } from '../components/offers/Parteners';
 import PageHeader from '../components/pageheader/PageHeader';
 
 const ShopList = () => {
-  const products = [
-    {
-      id: 1,
-      title: 'Accumsan tincidunt',
-      price: 26.0,
-      discount: 52.0,
-      img: img1,
-      description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna in est adipiscing in phasellus non in justo.',
-    },
-    {
-      id: 2,
-      title: 'Accumsan tincidunt',
-      price: 26.0,
-      discount: 52.0,
-      img: img2,
-      description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna in est adipiscing in phasellus non in justo.',
-    },
-    {
-      id: 3,
-      title: 'Accumsan tincidunt',
-      price: 26.0,
-      discount: 52.0,
-      img: img3,
-      description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna in est adipiscing in phasellus non in justo.',
-    },
-    {
-      id: 4,
-      title: 'Accumsan tincidunt',
-      price: 26.0,
-      discount: 52.0,
-      img: img4,
-      description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna in est adipiscing in phasellus non in justo.',
-    },
-    {
-      id: 5,
-      title: 'Accumsan tincidunt',
-      price: 26.0,
-      discount: 52.0,
-      img: img5,
-      description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna in est adipiscing in phasellus non in justo.',
-    },
-    {
-      id: 6,
-      title: 'Accumsan tincidunt',
-      price: 26.0,
-      discount: 52.0,
-      img: img6,
-      description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna in est adipiscing in phasellus non in justo.',
-    },
-    {
-      id: 7,
-      title: 'Accumsan tincidunt',
-      price: 26.0,
-      discount: 52.0,
-      img: img7,
-      description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna in est adipiscing in phasellus non in justo.',
-    },
-  ];
-
   const handleFavorite = (data) => {
     console.log(data);
   };
   return (
     <>
       <PageHeader title='Shop List' />
-      <div className='w-[84%] flex mt-3 justify-between items-center mx-auto'>
+      <div className='w-[84%] flex mt-4  justify-between items-center mx-auto'>
         <div className='flex flex-col items-start justify-start'>
           <h1 className='font-semibold'>
             Ecommerce Accessories & Fashion item
@@ -135,8 +63,8 @@ const ShopList = () => {
       </div>
       {/* Product List */}
       {products?.map((product) => (
-        <div key={product.id} className='w-[84%] my-2  mx-auto'>
-          <div className='w-[98%] bg-white shadow-custom rounded-lg p-2  '>
+        <div key={product.id} className='w-[84%] my-5  mx-auto'>
+          <div className='w-[98%] bg-white  shadow-[rgba(50,_50,_105,_0.15)_0px_2px_5px_0px,_rgba(0,_0,_0,_0.05)_0px_1px_1px_0px]  rounded-lg p-2  '>
             <div className='flex justify-start gap-10 items-center '>
               <div className=' '>
                 <img
