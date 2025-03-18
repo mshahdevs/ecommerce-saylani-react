@@ -31,7 +31,7 @@ export const AllProducts = () => {
     }
 
     dispatch(toggleFavorite(product));
-    toast.success(message);
+    toast.success('Prduct added to favorite');
   };
   const handleAddToCart = (data) => {
     if (!currentUser) {
